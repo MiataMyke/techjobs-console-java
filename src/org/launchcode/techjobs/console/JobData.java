@@ -76,16 +76,14 @@ public class JobData {
 
 
         for (HashMap<String, String> job : allJobs) {
-            for (Map.Entry<String, String> field : job.entrySet()) {
-                String key = field.getKey();
-                String value = field.getValue();
 
-                if (key.equalsIgnoreCase(searchValue) || value.equalsIgnoreCase(searchValue)) {
+            String jobInfo = job.toString();
+                if (jobInfo.toLowerCase().contains(searchValue.toLowerCase())) {
                     if (!jobs.contains(job)) {
                         jobs.add(job);
                     }
                 }
-            }
+
         }
         return jobs;
     }
